@@ -39,11 +39,9 @@ See the associated YAML files for info about inputs and running the container
   # Create input/output directories for binding
   mkdir /INPUTS && mkdir /OUTPUTS
 
-  # The compiled matlab executable is too large for github, so we get it from
-  # a personal URL so singularity-hub can find it. Public availability is via 
-  # github LFS at
-  #    https://github.com/baxpr/fmri_conncalc/tree/master/bin/fmri_conncalc
-  wget -P/matlab_bin https://vuiis.vumc.org/~rogersbp/fmri_conncalc
+  # Singularity doesn't work with github LFS (it gets the ) so we get the compiled matlab
+  # executable via direct download
+  #wget -P/matlab_bin https://github.com/baxpr/fmri_conncalc/raw/master/bin/fmri_conncalc
 
 %environment
   # Set Matlab library path
