@@ -2,6 +2,7 @@ function fmri_conncalc(varargin)
 
 
 %% Parse inputs
+% We'll run the jsins version by default
 P = inputParser;
 addOptional(P,'magick_path','/usr/bin');
 addOptional(P,'param_file',which('params_JSins.csv'));
@@ -155,5 +156,7 @@ zip_outputs(out_dir,params);
 
 
 %% Exit
-exit
+if isdeployed
+	exit
+end
 
