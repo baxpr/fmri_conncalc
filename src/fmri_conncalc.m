@@ -30,7 +30,11 @@ else
 	wroi_file = '';
 end
 roi_file = P.Results.roi_file;
-roiinfo_file = P.Results.roiinfo_file;
+if ~isempty(P.Results.roiinfo_file)
+	roiinfo_file = which(P.Results.roiinfo_file);
+else
+	roiinfo_file = '';
+end
 coregmat_file = P.Results.coregmat_file;
 deffwd_file = P.Results.deffwd_file;
 ct1_file = P.Results.ct1_file;
@@ -42,6 +46,13 @@ subject = P.Results.subject;
 session = P.Results.session;
 scan = P.Results.scan;
 out_dir = P.Results.out_dir;
+if ~isempty(P.Results.roiinfo_file)
+	copyfile(which(P.Results.roiinfo_file),fullfile(out_dir,'roi_labels.csv'));
+else
+	fid = fopen(fullfile(out_dir,'roi_labels.csv'),'wt');
+	fprintf(fid,'No ROI label info available\n');
+	fclose(fid);
+end
 
 fprintf('param_file:   %s\n',param_file);
 fprintf('roi_file:     %s\n',roi_file);
@@ -80,13 +91,6 @@ disp('File prep')
 	prep_files( ...
 	out_dir,coregmat_file,deffwd_file,ct1_file,wgm_file,wcseg_file,func_file, ...
 	wroi_file);
-if ~isempty(roiinfo_file)
-	copyfile(roiinfo_file,fullfile(out_dir,'roi_labels.csv'));
-else
-	fid = fopen(fullfile(out_dir,'roi_labels.csv'),'wt');
-	fprintf(fid,'No ROI label info available\n');
-	fclose(fid);
-end
 movefile(wroi_file,fullfile(out_dir,'wroi_labels.nii'));
 wroi_file = fullfile(out_dir,'wroi_labels.nii');
 
