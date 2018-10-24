@@ -3,3 +3,4 @@ OUTPUTS
 spm*.ps
 *~
 localdocker.sh
+*.simg
