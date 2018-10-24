@@ -30,6 +30,8 @@ singularity
   out_dir /OUTPUTS
 ```
 
+The inputs `coregmat_file`, `deffwd_file`, `ct1_file`, `wgm_file`, `wcseg_file` would typically be obtained from the outputs of the `MAGM_Coreg_Normalize_v2` spider.
+
 The outputs are:
 
 ```
