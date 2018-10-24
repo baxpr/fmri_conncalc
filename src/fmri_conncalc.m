@@ -19,6 +19,7 @@ addOptional(P,'subject','UNK_SUBJ');
 addOptional(P,'session','UNK_SESS');
 addOptional(P,'scan','UNK_SCAN');
 addOptional(P,'out_dir','/OUTPUTS');
+parse(P,varargin{:});
 
 magick_path = P.Results.magick_path;
 param_file = P.Results.param_file;
