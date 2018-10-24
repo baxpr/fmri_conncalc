@@ -73,7 +73,7 @@ The built singularity container `baxpr-fmri_conncalc-master-v1.0.0.simg` (URL is
 
 Some critical analysis parameters are specified in the `param_file`, e.g. `params_JSins.csv`. This is a reference to a file that's in the built container, but these can also be viewed in the code repository e.g. `src/params/params_JSins.csv`. The parameters get as detailed as the repetition time of the fMRI scans. If the needed parameter file is not in the container already:
 - Add the new parameter file in `src/params`
-- Update the matlab compilation code to include it
+- Update the matlab compilation code to include it with `-a`
 - Recompile the matlab
 - Commit to github. Note that the compiled matlab executable is stored using LFS
 - Rebuild the container (increment the patch number, e.g. 1.0.0 to 1.0.1)
