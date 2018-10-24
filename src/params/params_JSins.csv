@@ -1,0 +1,13 @@
+drop_initialvols,0
+vols_kept,
+spatialsmooth_fwhm,6
+bandpasslo_hz,0.01
+bandpasshi_hz,0.10
+mot_PCs,6
+motderiv_PCs,6
+wmcsf_PCs,6
+scrub_FDthresh,0.5
+scrub_DVARSthresh,inf
+slorder,none
+tr,2
+output_maps,1
