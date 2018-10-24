@@ -11,7 +11,7 @@ inputs:
   xnat:
     scans:
       - name: scan_fmri
-        types: 'Funct-Run1'
+        types: 'Funct-Run1,Resting State,Rest'
         needs_qc: False
         resources:
           - resource: NIFTI
