@@ -7,7 +7,7 @@ proctype: conncalc_jsins_v1
 inputs:
   default:
     container_path: baxpr-fmri_conncalc-master-v1.0.0.simg
-	container_source: shub://baxpr/fmri_conncalc:v1.0.0
+    container_source: shub://baxpr/fmri_conncalc:v1.0.0
     extraflags: ""
   xnat:
     scans:
@@ -18,7 +18,7 @@ inputs:
           - resource: NIFTI
             fmatch: '*.nii.gz'
             fcount: 1
-			ftype: FILE
+            ftype: FILE
             fdest: fmri.nii.gz
             varname: func_file
 
