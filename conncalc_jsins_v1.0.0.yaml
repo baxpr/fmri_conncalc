@@ -193,7 +193,7 @@ command: >-
   magick_path /usr/bin
   param_file "params_JSins.csv"
   wroi_file "rois_JSins.nii.gz"
-  roi_file "[]"
+  roi_file ''
   roiinfo_file "rois_JSins.csv"
   coregmat_file "{coregmat_file}"
   deffwd_file "{deffwd_file}"

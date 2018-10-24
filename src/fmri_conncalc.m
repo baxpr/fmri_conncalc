@@ -26,6 +26,8 @@ magick_path = P.Results.magick_path;
 param_file = which(P.Results.param_file);
 if ~isempty(P.Results.wroi_file)
 	wroi_file = which(P.Results.wroi_file);
+else
+	wroi_file = '';
 end
 roi_file = P.Results.roi_file;
 roiinfo_file = P.Results.roiinfo_file;
@@ -40,6 +42,11 @@ subject = P.Results.subject;
 session = P.Results.session;
 scan = P.Results.scan;
 out_dir = P.Results.out_dir;
+
+fprintf('param_file:   %s\n',param_file);
+fprintf('roi_file:     %s\n',roi_file);
+fprintf('wroi_file:    %s\n',wroi_file);
+fprintf('roiinfo_file: %s\n',roiinfo_file);
 
 
 %% Read in parameter file
