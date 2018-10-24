@@ -46,12 +46,18 @@ params = read_parameter_file(param_file,out_dir);
 
 
 %% Create a warped (atlas space) ROI file if we need to
+% Little bit of a hack gzipping the files again after so prep_files will
+% work
 if isempty(wroi_file) && ~isempty(roi_file)
 	fprintf('Warping:\n    %s\n',roi_file);
 	system(['gunzip -f ' roi_file]);
-	wroi_file = warp_images(deffwd_file,roi_file, ...
+	system(['gunzip -f ' deffwd_file]);
+	wroi_file = warp_images(deffwd_file(1:end-3),roi_file(1:end-3), ...
 		[spm('dir') '/canonical/avg152T1.nii'],0,out_dir);
-	system(['gzip ' wroi_file]);
+	system(['gzip -f ' roi_file(1:end-3)]);
+	system(['gzip -f ' deffwd_file(1:end-3)]);
+	system(['gzip -f ' wroi_file]);
+	wroi_file = [wroi_file '.gz'];
 elseif ~isempty(wroi_file) && isempty(roi_file)
 	fprintf('Using MNI space ROI file %s\n',wroi_file);
 else
@@ -65,7 +71,13 @@ disp('File prep')
 	prep_files( ...
 	out_dir,coregmat_file,deffwd_file,ct1_file,wgm_file,wcseg_file,func_file, ...
 	wroi_file);
-copyfile(roiinfo_file,fullfile(out_dir,'roi_labels.csv'));
+if ~isempty(roiinfo_file)
+	copyfile(roiinfo_file,fullfile(out_dir,'roi_labels.csv'));
+else
+	fid = fopen(fullfile(out_dir,'roi_labels.csv'),'wt');
+	fprintf(fid,'No ROI label info available\n');
+	fclose(fid);
+end
 movefile(wroi_file,fullfile(out_dir,'wroi_labels.nii'));
 wroi_file = fullfile(out_dir,'wroi_labels.nii');
 
