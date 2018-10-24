@@ -1,4 +1,5 @@
-# `fmri_conncalc` Preprocessing and functional connectivity computation for fMRI
+# fmri_conncalc
+Preprocessing and functional connectivity computation for fMRI
 
 ## Quickstart
 
