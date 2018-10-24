@@ -63,17 +63,17 @@ Series of results repeated for each of the four processing streams
 
 ## Dependencies
 
-The built singularity container `baxpr-fmri_conncalc-master-v1.0.0.simg` (URL is shub://baxpr/fmri_conncalc:v1.0.0) is stand-alone with no external dependencies. The compiled matlab `bin/run_fmri_conncalc.sh` requires only the appropriate MATLAB Runtime to execute. To build these there are two stages:
+The built singularity container `baxpr-fmri_conncalc-master-v1.0.0.simg` (URL is shub://baxpr/fmri_conncalc:v1.0.0) is stand-alone with no external dependencies. The compiled matlab [bin/run_fmri_conncalc.sh](bin/run_fmri_conncalc.sh) requires only the appropriate MATLAB Runtime to execute. To build these there are two stages:
 
-1. Compile the MATLAB code into a stand-alone executable, using `compile_matlab.sh`. This requires a full MATLAB installation (R2017a, v92) and SPM12 (https://www.fil.ion.ucl.ac.uk/spm/).
+1. Compile the MATLAB code into a stand-alone executable, using [compile_matlab.sh](compile_matlab.sh). This requires a full MATLAB installation (R2017a, v92) and SPM12 (https://www.fil.ion.ucl.ac.uk/spm/).
 
-2. Build the singularity container. In addition to a few specific OS packages, this requires the MATLAB Compiled Runtime. All are specified to be downloaded during the build in the singularity recipe `Singularity.v1.0.0`. The container help text gives build instructions. Alternatively the built container can be obtained from singularity-hub:
+2. Build the singularity container. In addition to a few specific OS packages, this requires the MATLAB Compiled Runtime. All are specified to be downloaded during the build in the singularity recipe [Singularity.v1.0.0](Singularity.v1.0.0). The container help text gives build instructions. Alternatively the built container can be obtained from singularity-hub:
    `singularity pull shub://baxpr/fmri_conncalc:v1.0.0`
 
 
 ## Peculiarities of specific pipelines
 
-Some critical analysis parameters are specified in the `param_file`, e.g. `params_JSins.csv`. This is a reference to a file that's in the built container, but these can also be viewed in the code repository e.g. `src/params/params_JSins.csv`. The parameters get as detailed as the repetition time of the fMRI scans. If the needed parameter file is not in the container already:
+Some critical analysis parameters are specified in the `param_file`, e.g. `params_JSins.csv`. This is a reference to a file that's in the built container, but these can also be viewed in the code repository e.g. [src/params/params_JSins.csv](src/params/params_JSins.csv). The parameters get as detailed as the repetition time of the fMRI scans. If the needed parameter file is not in the container already:
 - Add the new parameter file in `src/params`
 - Update the matlab compilation code to include it with `-a`
 - Recompile the matlab
@@ -83,13 +83,13 @@ Some critical analysis parameters are specified in the `param_file`, e.g. `param
 
 ### jsins version
 
-`conncalc_jsins_v1.0.0.yaml`
+[conncalc_jsins_v1.0.0.yaml](conncalc_jsins_v1.0.0.yaml)
 
-Standard space regions of interest are used, `params/JS_insula/rois_JSins.nii.gz`, identical for every subject.
+Standard space regions of interest are used, [params/JS_insula/rois_JSins.nii.gz](params/JS_insula/rois_JSins.nii.gz), identical for every subject.
 
 Connectivity matrix is computed (Pearson bivariate correlation R). A connectivity map is computed for each ROI (Fisher Z transform applied to Pearson bivariate correlation). Spatial smoothing is applied to the connectivity maps only.
 
-Parameter settings in `params_JSins.csv`:
+Parameter settings in [params/params_JSins.csv](params/params_JSins.csv):
 
 - FMRI repetition time (TR) is assumed to be 2.000 sec
 - Use all fMRI volumes (none dropped)
