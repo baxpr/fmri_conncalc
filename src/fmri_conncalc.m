@@ -23,8 +23,10 @@ addOptional(P,'out_dir','/OUTPUTS');
 parse(P,varargin{:});
 
 magick_path = P.Results.magick_path;
-param_file = P.Results.param_file;
-wroi_file = P.Results.wroi_file;
+param_file = which(P.Results.param_file);
+if ~isempty(P.Results.wroi_file)
+	wroi_file = which(P.Results.wroi_file);
+end
 roi_file = P.Results.roi_file;
 roiinfo_file = P.Results.roiinfo_file;
 coregmat_file = P.Results.coregmat_file;
