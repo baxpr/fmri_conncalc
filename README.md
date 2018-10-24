@@ -4,7 +4,7 @@ Preprocessing and functional connectivity computation for fMRI
 ## Quickstart
 
 Here is an example for the "jsins" version of the processor, as described in
-`conncalc_jsins_v1.0.0.yaml`.
+[conncalc_jsins_v1.0.0.yaml](conncalc_jsins_v1.0.0.yaml).
 
 ```
 singularity
