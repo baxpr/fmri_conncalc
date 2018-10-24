@@ -61,7 +61,7 @@ Series of results repeated for each of the four processing streams
 
 ## Dependencies
 
-The built singularity container `baxpr-fmri_conncalc-master-v1.0.0.simg` (URL is shub://baxpr/fmri_conncalc:v1.0.0) is stand-alone with no external dependencies. The compiled matlab `bin/run_fmri_conncalc.sh` requires only the appropriate MATLAB Runtime to execute. To build these there are two stages:
+The built singularity container `baxpr-fmri_conncalc-master-v1.0.0.simg` (URL is [shub://baxpr/fmri_conncalc:v1.0.0]) is stand-alone with no external dependencies. The compiled matlab `bin/run_fmri_conncalc.sh` requires only the appropriate MATLAB Runtime to execute. To build these there are two stages:
 
 1. Compile the MATLAB code into a stand-alone executable, using `compile_matlab.sh`. This requires a full MATLAB installation (R2017a, v92) and SPM12 (https://www.fil.ion.ucl.ac.uk/spm/).
 
