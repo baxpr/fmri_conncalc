@@ -35,7 +35,7 @@ matlab -nodesktop -nosplash -sd src -r "prep_spm_for_compile('${spm_dir}'); exit
 #    params/params_JSins.csv
 #    params/JS_insula/rois_JSins.nii.gz
 #    params/params_SZhab.csv
-mcc -m -v matlab/fmri_conncalc.m \
+mcc -m -v src/fmri_conncalc.m \
 -I ${spm_dir} \
 -I ${spm_dir}/config \
 -I ${spm_dir}/matlabbatch \
