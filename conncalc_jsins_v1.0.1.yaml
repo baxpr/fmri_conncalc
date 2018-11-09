@@ -53,13 +53,13 @@ inputs:
 
     attrs:
       - varname: project
-        object: session
+        object: assessor
         attr: project
       - varname: subject
-        object: session
+        object: assessor
         attr: subject_label
       - varname: session
-        object: session
+        object: assessor
         attr: label
       - varname: scan
         object: scan
