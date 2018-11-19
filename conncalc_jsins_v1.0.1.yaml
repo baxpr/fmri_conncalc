@@ -178,22 +178,22 @@ command: >-
   run
   --bind $INDIR:/INPUTS
   --bind $OUTDIR:/OUTPUTS
-  "{container_path}"
+  {container_path}
   magick_path /usr/bin
-  param_file "params_JSins.csv"
-  wroi_file "rois_JSins.nii.gz"
+  param_file params_JSins.csv
+  wroi_file rois_JSins.nii.gz
   roi_file ''
-  roiinfo_file "rois_JSins.csv"
-  coregmat_file /INPUTS/"{coregmat_file}"
-  deffwd_file /INPUTS/"{deffwd_file}"
-  ct1_file /INPUTS/"{ct1_file}"
-  wgm_file /INPUTS/"{wgm_file}"
-  wcseg_file /INPUTS/"{wcseg_file}"
-  func_file /INPUTS/"{func_file}"
-  project "{project}"
-  subject "{subject}"
-  session "{session}"
-  scan "{scan}"
+  roiinfo_file rois_JSins.csv
+  coregmat_file /INPUTS/{coregmat_file}
+  deffwd_file /INPUTS/{deffwd_file}
+  ct1_file /INPUTS/{ct1_file}
+  wgm_file /INPUTS/{wgm_file}
+  wcseg_file /INPUTS/{wcseg_file}
+  func_file /INPUTS/{func_file}
+  project {project}
+  subject {subject}
+  session {session}
+  scan {scan}
   out_dir /OUTPUTS
 
 

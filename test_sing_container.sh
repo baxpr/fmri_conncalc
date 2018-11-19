@@ -2,6 +2,7 @@
 # jsins
 singularity \
 run \
+--cleanenv --contain \
 --bind INPUTS:/INPUTS \
 --bind OUTPUTS:/OUTPUTS \
 baxpr-fmri_conncalc-master-v1.0.0.simg \
