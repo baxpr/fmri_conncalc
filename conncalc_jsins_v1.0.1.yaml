@@ -56,10 +56,10 @@ inputs:
         object: assessor
         attr: project
       - varname: subject
-        object: assessor
+        object: session 
         attr: subject_label
       - varname: session
-        object: assessor
+        object: session
         attr: label
       - varname: scan
         object: scan
@@ -176,6 +176,7 @@ outputs:
 command: >-
   singularity
   run
+  --home $INDIR
   --bind $INDIR:/INPUTS
   --bind $OUTDIR:/OUTPUTS
   {container_path}
@@ -200,6 +201,7 @@ command: >-
 attrs:
   xsitype: proc:genProcData
   walltime: '2:00:00'
-  memory: 8192
+  memory: 16384
   ppn: 1
-jobtemplate: singularity_job_template.txt
+jobtemplate: job_template.txt
+
